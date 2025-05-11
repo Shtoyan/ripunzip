@@ -110,7 +110,7 @@ fn content_length_via_headers(response: &Response) -> Option<u64> {
 #[cfg(test)]
 mod tests {
     use httptest::{matchers::*, responders::*, Expectation, Server};
-    use ripunzip_test_utils::*;
+    use ripunzip_test_utils::{RangeAwareResponse, RangeAwareResponseType};
     use std::io::Read;
     use test_log::test;
 

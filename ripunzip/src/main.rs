@@ -13,7 +13,7 @@ use std::{fmt::Write, fs::File, path::PathBuf, sync::RwLock};
 use anyhow::Result;
 use clap::{Args, Parser, Subcommand};
 use indicatif::{ProgressBar, ProgressState, ProgressStyle};
-use ripunzip::{
+use ripunzip_lib::{
     FilenameFilter, NullProgressReporter, UnzipEngine, UnzipOptions, UnzipProgressReporter,
 };
 use wildmatch::WildMatch;
@@ -227,12 +227,10 @@ impl UnzipProgressReporter for ProgressDisplayer {
 
 #[cfg(test)]
 mod tests {
-    use std::sync::RwLock;
-
-    use ripunzip::FilenameFilter;
-    use wildmatch::WildMatch;
-
     use crate::FileListFilter;
+    use ripunzip_lib::FilenameFilter;
+    use std::sync::RwLock;
+    use wildmatch::WildMatch;
 
     #[test]
     fn test_filelist_filter() {

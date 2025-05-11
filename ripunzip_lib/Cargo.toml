@@ -1,0 +1,38 @@
+[package]
+name = "ripunzip_lib"
+version = "2.0.2"
+edition = "2021"
+authors = ["Adrian Taylor <adetaylor@chromium.org>"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+description = "A tool to unzip an archive in parallel"
+repository = "https://github.com/google/ripunzip"
+rust-version = "1.70"
+
+[dependencies]
+anyhow = "1.0.66"
+log = "0.4.17"
+progress-streams = "1.1.0"
+ranges = "0.4.0"
+rayon = "1.6.0"
+reqwest = { version = "0.11.13", features = ["blocking"] }
+tempfile = "3.3.0"
+thiserror = "1.0.37"
+zip = "2.6"
+
+[dev-dependencies]
+hexdump = "0.1.1"
+httptest = "0.15"
+http = "0.2.8"
+hyper = "0.14.23"
+test-log = "0.2.11"
+criterion = "0.3"
+ripunzip_test_utils = { path = "..//test_utils" }
+
+[features]
+real_world_benchmark = []
+
+# [[bench]]
+# name = "ripunzip_benchmark"
+# path = "..//benches//ripunzip_benchmark"
+# harness = false
