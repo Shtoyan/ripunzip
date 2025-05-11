@@ -495,7 +495,7 @@ mod tests {
     use super::FilenameFilter;
     use crate::{NullProgressReporter, UnzipEngine, UnzipOptions};
     use httptest::Server;
-    use ripunzip_test_utils::*;
+    use ripunzip_test_utils::{set_up_server, FileSizes, ServerType, ZipParams};
     use std::{
         collections::HashSet,
         env::{current_dir, set_current_dir},

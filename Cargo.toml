@@ -6,58 +6,9 @@
 # option. This file may not be copied, modified, or distributed
 # except according to those terms.
 
-[package]
-name = "ripunzip"
-version = "2.0.2"
-edition = "2021"
-authors = ["Adrian Taylor <adetaylor@chromium.org>"]
-license = "MIT OR Apache-2.0"
-readme = "README.md"
-description = "A tool to unzip an archive in parallel"
-repository = "https://github.com/google/ripunzip"
-rust-version = "1.70"
-
-[features]
-real_world_benchmark = []
-
-[dependencies]
-anyhow = "1.0.66"
-clap = { version = "4.0.26", features = ["derive"] }
-clap-verbosity-flag = "2.1.0"
-env_logger = "0.10.0"
-indicatif = "0.17.2"
-itertools = "0.10.5"
-log = "0.4.17"
-progress-streams = "1.1.0"
-ranges = "0.4.0"
-rayon = "1.6.0"
-regex = "1.10.2"
-reqwest = { version = "0.11.13", features = ["blocking"] }
-tempfile = "3.3.0"
-thiserror = "1.0.37"
-wildmatch = "2.1.1"
-zip = "2.6"
-
-[dev-dependencies]
-hexdump = "0.1.1"
-httptest = "0.15"
-http = "0.2.8"
-hyper = "0.14.23"
-test-log = "0.2.11"
-criterion = "0.3"
-ripunzip_test_utils = { path = "test_utils" }
-
-[[bench]]
-name = "ripunzip_benchmark"
-harness = false
-
-[lib]
-name = "ripunzip"
-path = "src/lib.rs"
-
-[[bin]]
-name = "ripunzip"
-path = "src/main.rs"
-
 [workspace]
-members = ["test_utils"]
+members = ["ripunzip", "ripunzip_lib", "test_utils"]
+resolver = "2"
+
+# [workspace]
+# members = ["test_utils"]
