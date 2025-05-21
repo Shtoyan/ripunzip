@@ -8,6 +8,18 @@
 
 #![forbid(unsafe_code)]
 
+use thiserror::Error;
+
+#[derive(Error, Debug)]
+pub enum RipunzipErrors {
+    #[error(transparent)]
+    IOError(#[from] std::io::Error),
+    #[error(transparent)]
+    ZipErrorr(#[from] zip::result::ZipError),
+    #[error(transparent)]
+    ReqwestErrorr(#[from] reqwest::Error),
+}
+
 mod unzip;
 
 pub use unzip::FilenameFilter;
